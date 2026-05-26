@@ -15,6 +15,28 @@ namespace CarritoCompras
             Productos = new List<Producto>();
         }
 
+        public void AgregarProductoAlCatálogo(Producto producto)
+        {
+            Productos.Add(producto);
+        }
+
+        public Producto BuscarProductoPorId(int id)
+        {
+            return Productos.Find(p => p.Id == id);
+        }
+
+        public void listarProductos()
+        {
+            foreach (var item in Productos)
+            {
+                Console.WriteLine($"ID: {item.Id}");
+                Console.WriteLine($"Nombre: {item.Nombre}");
+                Console.WriteLine($"Precio: {item.Precio}");
+                Console.WriteLine($"Stock: {item.Stock}");
+               )
+            }
+        }
+
 
     }
     
