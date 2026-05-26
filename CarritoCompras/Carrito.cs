@@ -1,16 +1,17 @@
-﻿using System;
+﻿using CarritoCompras;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace CarritoCompras
+namespace CarritoCompra
 {
-    internal class CarritoCompras
+    internal class Carrito
     {
         public int Id { get; set; }
         public List<DetalleCompra> ListaCompra { get; set;}
         public Cliente Cliente { get; set; }
 
-        public CarritoCompras(Cliente cliente, int id)
+        public Carrito(Cliente cliente, int id)
         {
             this.Id = id;
             this.Cliente = cliente;
@@ -90,6 +91,26 @@ namespace CarritoCompras
                 total += item.Producto.Precio * item.CantidadProducto;
             }
             return total;
+        }
+
+        public override string ToString()
+        {
+            string resultado = "Lista productos en carrito:\n";
+            double total = 0;
+
+            foreach (var item in ListaCompra)
+            {
+                double subtotal = item.Producto.Precio * item.CantidadProducto;
+                total += subtotal;
+
+                resultado += $"- Producto: {item.Producto.Nombre}, Cantidad: {item.CantidadProducto}\n" +
+                             $"  Precio unidad: {item.Producto.Precio}\n" +
+                             $"  Subtotal: {subtotal}\n\n";
+            }
+
+            resultado += $"TOTAL: {total}";
+
+            return resultado;
         }
     }
 }

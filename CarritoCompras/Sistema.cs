@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CarritoCompra;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -7,7 +8,7 @@ namespace CarritoCompras
     internal class Sistema
     {
         public int UltimoProducto { get; set; }
-        private CarritoCompras Carrito { get; set; }
+        private Carrito Carrito { get; set; }
         public List<Producto> Productos { get; set; }
 
         public Sistema(Cliente cliente) {
@@ -33,7 +34,6 @@ namespace CarritoCompras
                 Console.WriteLine($"Nombre: {item.Nombre}");
                 Console.WriteLine($"Precio: {item.Precio}");
                 Console.WriteLine($"Stock: {item.Stock}");
-               )
             }
         }
 
